@@ -9,12 +9,13 @@
   },
   "dependencies": {
     "core-js": "^3.6.5",
+    "ionicons": "^6.0.4",
+    "one-colorpicker": "^1.0.12",
     "vue": "^2.6.11",
+    "vue-json-excel": "^0.3.0",
     "vue-router": "^3.2.0",
     "vuetify": "^2.6.0",
-    "vuex": "^3.4.0",
-    "ionicons": "^6.0.4",
-    "vue-json-excel": "^0.3.0"
+    "vuex": "^3.4.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.15",
