@@ -10,7 +10,7 @@
 
 
   export default {
-    name: 'Home-view',
+    name: 'Main',
 
     components: {
 

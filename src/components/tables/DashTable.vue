@@ -310,105 +310,106 @@
 </template>
 
 <script>
-    export default {
-      props: {
-          selectDash: {
-            type: String,
-            default: null,
-          },
-          resourceId: {
-            type: Number,
-            default: null
-          },
-          typeId: {
-            type: Number,
-            default: null
-          },
-          componentHeight: {
-              type: [String, Number],
-              default: null
-          },
-          itemsPerPage: {
-              type: [String, Number],
-              default: 5
-          },
-          height: {
-              type: [String, Number],
-              default: ''
-          },
-          isEdit: {
-              type: Boolean,
-              default: false
-          },
+export default {
+  name: 'DashTable',
+  props: {
+      selectDash: {
+        type: String,
+        default: null,
+      },
+      resourceId: {
+        type: Number,
+        default: null
+      },
+      typeId: {
+        type: Number,
+        default: null
+      },
+      componentHeight: {
+          type: [String, Number],
+          default: null
+      },
+      itemsPerPage: {
+          type: [String, Number],
+          default: 5
+      },
+      height: {
+          type: [String, Number],
+          default: ''
+      },
+      isEdit: {
+          type: Boolean,
+          default: false
+      },
 
-          tableHeaders: {
-              type: Array,
-              default: () => []
-          },
+      tableHeaders: {
+          type: Array,
+          default: () => []
+      },
 
-          tableItems: {
-              type: Array,
-              default: () => []
-          },
+      tableItems: {
+          type: Array,
+          default: () => []
+      },
 
-          disableHeader: {
-              type: Boolean,
-              default: false
-          },
+      disableHeader: {
+          type: Boolean,
+          default: false
+      },
 
-          disableFooter: {
-              type: Boolean,
-              default: true
-          },
-          /**`
-           *  @param {Boolean} tableTitle.show
-           *  @param {String} tableTitle.text
-           *  @param {String} tableTitle.subtitle
-           */
-          tableTitle: {
-              type: Object,
-              default: () => {
-              }
+      disableFooter: {
+          type: Boolean,
+          default: true
+      },
+      /**`
+       *  @param {Boolean} tableTitle.show
+       *  @param {String} tableTitle.text
+       *  @param {String} tableTitle.subtitle
+       */
+      tableTitle: {
+          type: Object,
+          default: () => {
           }
-      },
-      data() {
-        return {
-          selectFraud: ['Все', 'Video streaming'],
-          select: 'Все',
-        }
-      },
-      computed: {
-            /**
-             *  Скрыть названия, если нет tableItems
-             *  для красоты
-             */
-            getHeaderNames() {
-                return this.tableItems.length ? this.tableHeaders : [];
-            },
-            getExcelHeaders () {
-              let excelHeaders = {};
-
-              this.getHeaderNames.forEach(row => {
-                excelHeaders[row.text] = row.value;
-              });
-
-              return excelHeaders;
-            }
-        },
-      methods: {
-        onChangeSelect() {
-          this.$emit('onChangeSelect', this.select)
-          this.$emit('saveFraudDiagram')
-        }
-      },
-
-      mounted() {
-          this.tableItems.forEach((element, index) => {
-              element.id = index;
-          });
-          this.select = this.selectDash
       }
+  },
+  data() {
+    return {
+      selectFraud: ['Все', 'Video streaming'],
+      select: 'Все',
     }
+  },
+  computed: {
+        /**
+         *  Скрыть названия, если нет tableItems
+         *  для красоты
+         */
+        getHeaderNames() {
+            return this.tableItems.length ? this.tableHeaders : [];
+        },
+        getExcelHeaders () {
+          let excelHeaders = {};
+
+          this.getHeaderNames.forEach(row => {
+            excelHeaders[row.text] = row.value;
+          });
+
+          return excelHeaders;
+        }
+    },
+  methods: {
+    onChangeSelect() {
+      this.$emit('onChangeSelect', this.select)
+      this.$emit('saveFraudDiagram')
+    }
+  },
+
+  mounted() {
+      this.tableItems.forEach((element, index) => {
+          element.id = index;
+      });
+      this.select = this.selectDash
+  }
+}
 </script>
 
 <style lang="scss" scoped>

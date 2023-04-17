@@ -121,7 +121,7 @@ import localDiagrams from '@/localData/diagrams.js'
 import DashTable from '@/components/tables/DashTable.vue'
 
   export default {
-    name: 'Home-view',
+    name: 'Dashboard',
     data() {
       return {
         colNum: 12,
