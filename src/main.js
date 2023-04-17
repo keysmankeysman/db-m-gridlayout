@@ -8,6 +8,11 @@ import IonIcon from '@/components/ionIcon/IonIcon'
 import JsonExcel from 'vue-json-excel'
 Vue.component('downloadExcel', JsonExcel);
 
+import {ColorPicker, ColorPanel} from 'one-colorpicker'
+
+Vue.use(ColorPanel)
+Vue.use(ColorPicker)
+
 Vue.component('ion-icon', IonIcon)
 Vue.config.ignoredElements = [/^ion-/];
 

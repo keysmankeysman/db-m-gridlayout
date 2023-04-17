@@ -51,6 +51,16 @@
           <div style="width: 33%"></div>
         </div>
       </template>
+      <template v-slot:item.certificate_name="{ item }">
+        <div>{{ item }}</div>
+        <!-- <v-color-picker
+          dot-size="25"
+          swatches-max-height="200"
+        ></v-color-picker> -->
+      </template>
+      <!-- <color-picker v-model="color" @change="changeColor($event)"></color-picker> -->
+
+
     </v-data-table>
 
     <downloadExcel :data="tableItems" :fields="getExcelHeaders">
@@ -73,8 +83,13 @@
 </template>
 
 <script>
+// import {ColorPicker} from 'one-colorpicker'
+
 export default {
   name: 'DashTable',
+  components: {
+    // ColorPicker,
+  },
   props: {
     selectDash: {
       type: String,
