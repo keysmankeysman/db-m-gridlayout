@@ -130,48 +130,44 @@
     </span>
         </template>
 
-        <template
-                v-slot:item.bwTotal="props"
-        >
-    <span
-            class="body-item"
-    >
+        <template v-slot:item.bwTotal="props">
+    <span class="body-item">
       {{$Util.parseTableBytesNumber(props.item.bwTotal)}}
     </span>
         </template>
 
         <template
-                v-slot:item.asn="props"
+          v-slot:item.asn="props"
         >
-            <v-tooltip
-                    :disabled="!$Util.isOverflown($refs[`asn${props.item.id}`])"
-                    bottom
-            >
-                <template v-slot:activator="{ on }">
-                    <router-link
-                            :to="`/asn/${encodeURIComponent(props.item.asn)}`"
-                            class="body-item"
-                            style="cursor: pointer; color: #07a; text-decoration: underline;"
-                    >
-                        <country-flag
-                                :country="props.item.countryCode"
-                                rounded
-                                size='small'
-                        />
+          <v-tooltip
+            :disabled="!$Util.isOverflown($refs[`asn${props.item.id}`])"
+            bottom
+          >
+            <template v-slot:activator="{ on }">
+              <router-link
+                :to="`/asn/${encodeURIComponent(props.item.asn)}`"
+                class="body-item"
+                style="cursor: pointer; color: #07a; text-decoration: underline;"
+              >
+                  <country-flag
+                          :country="props.item.countryCode"
+                          rounded
+                          size='small'
+                  />
 
-                        <span
-                                class="tab-table-text-truncate"
-                        >
-            <div
-                    :ref="`asn${props.item.id}`"
-                    style="height: 20px;"
-                    v-on="on"
-            >{{props.item.asn}}</div>
-          </span>
-                    </router-link>
-                </template>
-                <span>{{ props.item.asn }}</span>
-            </v-tooltip>
+                  <span
+                    class="tab-table-text-truncate"
+                  >
+      <div
+        :ref="`asn${props.item.id}`"
+        style="height: 20px;"
+        v-on="on"
+      >{{props.item.asn}}</div>
+    </span>
+              </router-link>
+            </template>
+            <span>{{ props.item.asn }}</span>
+          </v-tooltip>
         </template>
 
         <template v-slot:item.clientAsn="props">
