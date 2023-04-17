@@ -108,8 +108,6 @@
             class="body-item justify-end"
     >
       {{$Util.parseTableBytesNumber(props.item.bytesIn)}}
-        <!-- {{$Util.parseTableBytesNumber(props.item.bytesIn / props.header.unit)}}
-        {{props.header.unit == 1 ? ' Мбайт' : ' Гбайт'}} -->
     </span>
         </template>
 
@@ -120,8 +118,6 @@
             class="body-item justify-end"
     >
       {{$Util.parseTableBytesNumber(props.item.bytesOut)}}
-        <!-- {{$Util.parseTableBytesNumber(props.item.bytesOut / props.header.unit)}}
-        {{props.header.unit == 1 ? ' Мбайт' : ' Гбайт'}} -->
     </span>
         </template>
         <template
@@ -131,8 +127,6 @@
             class="body-item justify-end"
     >
       {{$Util.parseTableBytesNumber(props.item.bytesTotal)}}
-        <!-- {{$Util.parseTableBytesNumber(props.item.bytesTotal / props.header.unit)}}
-        {{props.header.unit == 1 ? ' Мбайт' : ' Гбайт'}} -->
     </span>
         </template>
 
@@ -182,28 +176,28 @@
 
         <template v-slot:item.clientAsn="props">
             <v-tooltip
-                    :disabled="!$Util.isOverflown($refs[`clientAsn${props.item.id}`])"
-                    bottom
+              :disabled="!$Util.isOverflown($refs[`clientAsn${props.item.id}`])"
+              bottom
             >
-                <template v-slot:activator="{ on }">
-                    <router-link
-                            :to="`/asn/${encodeURIComponent(props.item.clientAsn)}`"
-                            class="body-item"
-                            style="cursor: pointer; color: #07a; text-decoration: underline;"
-                    >
-                        <country-flag
-                                :country="props.item.countryCodeIn"
-                                rounded
-                                size='small'
-                        />
-                        <span
-                                class="tab-table-text-truncate"
-                        >
-            <div
+              <template v-slot:activator="{ on }">
+                <router-link
+                  :to="`/asn/${encodeURIComponent(props.item.clientAsn)}`"
+                  class="body-item"
+                  style="cursor: pointer; color: #07a; text-decoration: underline;"
+                >
+                  <country-flag
+                    :country="props.item.countryCodeIn"
+                    rounded
+                    size='small'
+                  />
+                  <span class="tab-table-text-truncate">
+                  <div
                     :ref="`clientAsn${props.item.id}`"
                     style="height: 20px;"
                     v-on="on"
-            >{{props.item.clientAsn}}</div>
+                  >
+                    {{props.item.clientAsn}}
+                  </div>
           </span>
                     </router-link>
                 </template>
